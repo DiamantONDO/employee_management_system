@@ -1,25 +1,6 @@
 # Employee Management System API
 
-A REST API for managing employees and attendance, built with Django and Django REST Framework. The project follows a strict N-Tier Architecture and is fully containerized with Docker.
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Project Structure](#project-structure)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Environment Variables](#environment-variables)
-- [Running with Docker](#running-with-docker)
-- [Running Tests](#running-tests)
-- [API Endpoints](#api-endpoints)
-- [API Documentation](#api-documentation)
-- [Running Celery](#running-celery)
-- [Git Workflow](#git-workflow)
-
----
+A production-ready REST API for managing employees and attendance, built with Django and Django REST Framework. The project follows a strict N-Tier Architecture and is fully containerized with Docker.
 
 ## Overview
 

@@ -9,6 +9,9 @@ class EmployeeRepository:
     def get_by_id(self, employee_id):
         return Employee.objects.filter(id=employee_id).first()
 
+    def get_by_name(self, employee_name):
+        return Employee.objects.filter(employee_name=employee_name).first()
+
     def get_by_email(self, email):
         return Employee.objects.filter(email=email).first()
 
@@ -24,6 +27,8 @@ class EmployeeRepository:
         employee.save()
         return employee
 
+    #Soft delete: instead of removing the record from the database,
+    # it just sets is_active = False
     def soft_delete(self, employee):
         employee.is_active = False
         employee.save()
@@ -40,7 +45,9 @@ class EmployeeRepository:
         )
 
     def filter_by_department(self, department):
-        return Employee.objects.filter(department=department)
+        return Employee.objects.filter(
+            department=department
+        )
 
     def filter_by_active(self, is_active):
         return Employee.objects.filter(is_active=is_active)
