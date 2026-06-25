@@ -7,7 +7,7 @@ class AttendanceRepository:
         return Attendance.objects.select_related('employee').filter(**filters)
 
     def get_by_id(self, attendance_id):
-        return Attendance.objects.select_related('employee').filter(id=attendance_id).first()
+        return Attendance.objects.select_related('employee').filter(id=attendance_id, is_active=True).first()
 
     def create(self, **kwargs):
         return Attendance.objects.create(**kwargs)
@@ -18,8 +18,13 @@ class AttendanceRepository:
         attendance.save()
         return attendance
 
-    def delete(self, attendance):
-        attendance.delete()
+    #def delete(self, attendance):
+        #attendance.delete()
+
+    def soft_delete(self, attendance):
+        attendance.is_active = False
+        attendance.save()
+        return attendance
 
     def filter_by_employee(self, employee_id):
         return Attendance.objects.select_related('employee').filter(employee_id=employee_id)

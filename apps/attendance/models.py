@@ -20,6 +20,7 @@ class Attendance(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, default="PRESENT", max_length=10)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['-attendance_date']
