@@ -44,7 +44,7 @@ class AttendanceService:
 
     def delete_attendance(self, attendance_id):
         attendance = self.get_attendance_by_id(attendance_id)
-        self.repo.delete(attendance)
+        self.repo.soft_delete(attendance)
         return True
 
     def get_employee_attendance(self, employee_id):

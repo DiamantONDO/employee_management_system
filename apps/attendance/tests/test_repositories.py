@@ -59,6 +59,6 @@ class TestAttendanceRepository:
 
     def test_soft_delete_not_applicable(self):
         attendance = AttendanceFactory()
-        self.repo.delete(attendance)
+        self.repo.soft_delete(attendance)
         result = self.repo.get_by_id(attendance.id)
         assert result is None
